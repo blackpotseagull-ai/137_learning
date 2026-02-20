@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title data-i18n="tool_page_title">Review Tool - StudyHub</title>
-  <meta name="description" content="A tool to apply the 1-3-7 spaced repetition method. Add what you've studied and check off your reviews to learn effectively." data-i18n="tool_meta_description" data-i18n-target="content">
-  <meta name="keywords" content="review tool, spaced repetition, study schedule, learning tool, 1-3-7 method" data-i18n="tool_meta_keywords" data-i18n-target="content">
+  <meta name="description" content="Deep dive into the 1-3-7 spaced repetition method and use our tool to master your learning. Understand the science and apply it effectively." data-i18n="tool_meta_description_detailed" data-i18n-target="content">
+  <meta name="keywords" content="review tool, spaced repetition, study schedule, learning tool, 1-3-7 method, forgetting curve, Ebbinghaus, active recall" data-i18n="tool_meta_keywords_detailed" data-i18n-target="content">
   
   <link href='/css/style.css' rel='stylesheet'>
   <link href='/css/tool.css' rel='stylesheet'>
@@ -16,28 +16,47 @@
   <site-header></site-header>
 
   <main class="container">
-    <h1 data-i18n="tool_main_title">1-3-7 Review Tool</h1>
-
-    <!-- How to Use Section -->
-    <section class="how-to-use card">
-        <h2 data-i18n="how_to_use_title">How to Use the 1-3-7 Method</h2>
-        <div class="steps">
-            <div class="step">
-                <h3 data-i18n="how_to_use_step1_title">1. First Review (After 1 Day)</h3>
-                <p data-i18n="how_to_use_step1_desc">Review the material for the first time the day after you learn it. This is the most critical step to strengthen the initial memory trace.</p>
-            </div>
-            <div class="step">
-                <h3 data-i18n="how_to_use_step2_title">2. Second Review (After 3 Days)</h3>
-                <p data-i18n="how_to_use_step2_desc">Review the material again three days after the *initial* learning session. This helps transition the memory from short-term to long-term.</p>
-            </div>
-            <div class="step">
-                <h3 data-i18n="how_to_use_step3_title">3. Third Review (After 7 Days)</h3>
-                <p data-i18n="how_to_use_step3_desc">The final review happens seven days after the *initial* session. This solidifies the knowledge for long-term retention.</p>
-            </div>
-        </div>
+    <section class="page-intro text-center">
+      <h1 data-i18n="tool_main_title_detailed">Deep Dive into the 1-3-7 Learning Method</h1>
+      <p class="lead" data-i18n="tool_subtitle_detailed">It's not just a tool, it's a gateway to smarter learning. Understand the 'why' behind the 'how'.</p>
     </section>
 
-    <!-- Review Tool Section -->
+    <!-- What is the 1-3-7 Method? -->
+    <section class="card">
+        <h2 data-i18n="what_is_137_title">What Exactly is the 1-3-7 Method?</h2>
+        <p data-i18n="what_is_137_p1">The 1-3-7 method is a simple yet powerful learning schedule based on the principles of **Spaced Repetition**. Instead of cramming information all at once, you strategically review it over increasing intervals. Specifically, you review new material:</p>
+        <ul>
+            <li data-i18n="what_is_137_li1">**1 day** after you first learn it.</li>
+            <li data-i18n="what_is_137_li2">**3 days** after the initial learning.</li>
+            <li data-i18n="what_is_137_li3">**7 days** after the initial learning.</li>
+        </ul>
+        <p data-i18n="what_is_137_p2">This structured review process interrupts the natural process of forgetting, strengthening your neural pathways and cementing knowledge into your long-term memory. It transforms learning from a short-term sprint into a long-term, sustainable marathon.</p>
+    </section>
+
+    <!-- The Science Behind It -->
+    <section class="card">
+        <h2 data-i18n="science_title">The Science Behind the Magic: The Forgetting Curve</h2>
+        <p data-i18n="science_p1">In the 19th century, psychologist Hermann Ebbinghaus discovered the "Forgetting Curve," a concept that describes how our memory of new information fades over time if we don't try to retain it. The curve shows a steep drop in memory retention shortly after learning, which then levels off.</p>
+        <p data-i18n="science_p2">**Spaced repetition is the antidote to the Forgetting Curve.** Each time you review the information at the intervals suggested by the 1-3-7 method, you "reset" the curve. The forgetting process slows down with each review, meaning you need to review less frequently over time to maintain the same level of retention. This tool helps you do exactly that, at the optimal moments.</p>
+        <div class="image-placeholder text-center">
+          <img src="https://via.placeholder.com/600x300.png?text=Ebbinghaus+Forgetting+Curve" alt="Diagram of the Ebbinghaus Forgetting Curve" style="max-width: 100%; height: auto;">
+          <p><em><small data-i18n="science_img_caption">The Forgetting Curve shows how information is lost over time. Spaced reviews (like 1-3-7) push the curve up, leading to long-term retention.</small></em></p>
+        </div>
+    </section>
+    
+    <!-- Practical Tips -->
+    <section class="card">
+        <h2 data-i18n="tips_title">Practical Tips for Maximizing Your Learning</h2>
+        <p data-i18n="tips_p1">Using the tool is a great first step. Combine it with these techniques for even better results:</p>
+        <ul>
+            <li data-i18n="tips_li1"><strong>Active Recall:</strong> Don't just passively re-read your notes. When a review is due, try to recall the information from memory first, *before* checking your material. This effortful retrieval is what builds strong memories.</li>
+            <li data-i18n="tips_li2"><strong>Elaboration:</strong> Try to explain the concept in your own words, as if you were teaching it to someone else. Connect it to what you already know.</li>
+            <li data-i18n="tips_li3"><strong>Chunking:</strong> Break down large topics into smaller, manageable "chunks" of information. Add these smaller chunks to the review tool instead of a huge, vague topic.</li>
+             <li data-i18n="tips_li4"><strong>Consistency is Key:</strong> The magic of this method lies in consistency. Try to make your reviews a daily habit. Our tool is designed to make this as easy as possible.</li>
+        </ul>
+    </section>
+
+    <!-- Review Tool App -->
     <section class="review-tool-app card">
       <div class="form-container">
         <h2 data-i18n="add_topic_title">Add New Study Topic</h2>
@@ -50,7 +69,6 @@
       <div class="list-container">
         <h2 data-i18n="study_list_title">My Study List</h2>
         <ul id="study-list" class="study-list">
-          <!-- Study items will be dynamically inserted here -->
           <li class="empty-message" data-i18n="empty_list_message">Your study list is empty. Add a topic above to get started!</li>
         </ul>
       </div>
