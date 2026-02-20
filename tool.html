@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Review Tool - StudyHub</title>
+  <meta name="description" content="A simple tool to schedule and track your study review sessions based on the spaced repetition method.">
+  <meta name="keywords" content="review tool, spaced repetition, study schedule, learning tool">
+  <link href='/css/style.css' rel='stylesheet'>
+  <link href='/css/tool.css' rel='stylesheet'>
+</head>
+<body>
+  <site-header></site-header>
+
+  <main>
+    <h1>Learning Review Tool</h1>
+    <p>Based on the principle of the forgetting curve, this tool helps you schedule reviews for optimal retention.</p>
+
+    <section id="review-tool">
+      <div class="form-container">
+        <h2>Add New Learning Topic</h2>
+        <form id="add-item-form">
+          <input type="text" id="item-title" placeholder="e.g., Algebra Chapter 3" required>
+          <button type="submit">Add & Schedule Reviews</button>
+        </form>
+      </div>
+
+      <div class="review-container">
+        <h2>Today's Review Items</h2>
+        <ul id="today-review-list" class="review-list">
+          <!-- Items to review today will be dynamically inserted here -->
+        </ul>
+      </div>
+
+      <div class="review-container">
+        <h2>Upcoming Review Items</h2>
+        <ul id="upcoming-review-list" class="review-list">
+            <!-- All other scheduled items will be dynamically inserted here -->
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <site-footer></site-footer>
+
+  <script defer type="text/javascript" src="/js/script.js"></script>
+  <script defer type="text/javascript" src="/js/tool.js"></script>
+</body>
+</html>
