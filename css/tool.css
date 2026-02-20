@@ -1,107 +1,167 @@
-/* Review Tool Specific Styles */
-#review-tool {
-    margin-top: 2rem;
+
+/* General Card Style */
+.card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e9ecef;
+}
+
+/* How to Use Section */
+.how-to-use h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #343a40;
+}
+
+.how-to-use .steps {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .how-to-use .steps {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.how-to-use .step {
+    text-align: center;
+}
+
+.how-to-use .step h3 {
+    color: #007bff;
+    margin-bottom: 0.5rem;
+}
+
+/* Review Tool App Section */
+.review-tool-app h2 {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    color: #343a40;
 }
 
 .form-container {
-    background-color: #f8f9fa;
-    padding: 1.5rem;
-    border-radius: 8px;
     margin-bottom: 2rem;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.form-container h2 {
-    margin-top: 0;
-    font-size: 1.5rem;
 }
 
 #add-item-form {
     display: flex;
-    gap: 10px;
+    gap: 0.5rem;
 }
 
 #item-title {
     flex-grow: 1;
-    padding: 0.75rem;
+    padding: 0.75rem 1rem;
     border: 1px solid #ced4da;
-    border-radius: 5px;
+    border-radius: 8px;
     font-size: 1rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-.review-container h2 {
-    border-bottom: 2px solid #007bff;
-    padding-bottom: 0.5rem;
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
+#item-title:focus {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
 
-.review-list {
+#add-item-form button {
+    white-space: nowrap;
+}
+
+/* Study List */
+.study-list {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-.review-list li {
-    background-color: #fff;
+.study-list li {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    align-items: center;
+    gap: 1rem;
     padding: 1rem;
-    border: 1px solid #dee2e6;
-    border-radius: 5px;
-    margin-bottom: 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    border-radius: 8px;
+    transition: background-color 0.2s;
 }
 
-.review-item-title {
-    font-weight: bold;
-    font-size: 1.2rem;
+.study-list li:not(.empty-message):hover {
+    background-color: #f8f9fa;
+}
+
+.study-list li:not(:last-child) {
+    border-bottom: 1px solid #e9ecef;
+}
+
+.item-title {
+    font-weight: 500;
 }
 
 .review-steps {
     display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    align-items: center;
+    gap: 0.5rem;
 }
 
 .review-step {
-    background-color: #e9ecef;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
     padding: 0.3rem 0.6rem;
     border-radius: 15px;
     font-size: 0.8rem;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    border: 1px solid #ced4da;
+    background-color: #e9ecef;
+    cursor: pointer;
+    transition: background-color 0.2s;
 }
 
-.review-step.done {
-    background-color: #d4edda;
-    border-color: #c3e6cb;
+.review-step:hover {
+    background-color: #d1d9e0;
+}
+
+.review-step.completed {
+    background-color: #d4edda; /* Light green */
     text-decoration: line-through;
+    color: #555;
 }
 
 .review-step input[type="checkbox"] {
-    margin-right: 5px;
-}
-
-.item-actions {
-    margin-top: 0.5rem;
-    align-self: flex-end;
+    cursor: pointer;
 }
 
 .delete-btn {
-    background-color: #dc3545;
-    color: white;
+    background: none;
     border: none;
-    padding: 0.4rem 0.8rem;
-    border-radius: 5px;
+    color: #adb5bd;
+    font-size: 1.5rem;
+    font-weight: bold;
     cursor: pointer;
-    font-size: 0.9rem;
+    transition: color 0.2s;
+    padding: 0 0.5rem;
 }
 
 .delete-btn:hover {
-    background-color: #c82333;
+    color: #dc3545; /* Red */
+}
+
+.empty-message {
+    text-align: center;
+    color: #6c757d;
+    padding: 2rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+    .study-list li {
+        grid-template-columns: 1fr auto;
+        grid-template-areas:
+            "title delete"
+            "steps steps";
+    }
+    .item-title { grid-area: title; }
+    .review-steps { grid-area: steps; justify-content: center; margin-top: 0.5rem; }
+    .delete-btn { grid-area: delete; }
 }

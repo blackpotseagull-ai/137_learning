@@ -1,100 +1,70 @@
+
 document.addEventListener('DOMContentLoaded', () => {
     const addItemForm = document.getElementById('add-item-form');
     const itemTitleInput = document.getElementById('item-title');
-    const todayList = document.getElementById('today-review-list');
-    const upcomingList = document.getElementById('upcoming-review-list');
+    const studyList = document.getElementById('study-list');
 
-    const getItems = () => JSON.parse(localStorage.getItem('reviewItems') || '[]');
-    const saveItems = (items) => localStorage.setItem('reviewItems', JSON.stringify(items));
-
-    const addDays = (date, days) => {
-        const result = new Date(date);
-        result.setDate(result.getDate() + days);
-        return result;
-    };
-
-    const formatDate = (date) => {
-        return date.toISOString().split('T')[0];
-    };
+    // Load items from localStorage
+    const getItems = () => JSON.parse(localStorage.getItem('studyItems') || '[]');
+    const saveItems = (items) => localStorage.setItem('studyItems', JSON.stringify(items));
 
     const renderItems = () => {
         const items = getItems();
-        todayList.innerHTML = '';
-        upcomingList.innerHTML = '';
-        const today = formatDate(new Date());
-
-        items.sort((a, b) => new Date(a.reviews[0].date) - new Date(b.reviews[0].date));
+        studyList.innerHTML = ''; // Clear the list
 
         if (items.length === 0) {
-            todayList.innerHTML = '<li>No items scheduled for today. Add a topic to get started!</li>';
-            upcomingList.innerHTML = '<li>No upcoming items.</li>';
+            studyList.innerHTML = `<li class="empty-message" data-i18n="empty_list_message">Your study list is empty. Add a topic above to get started!</li>`;
+            // Re-apply translation for the empty message if it's added dynamically
+            const preferredLanguage = localStorage.getItem('preferredLanguage') || (navigator.language.startsWith('ko') ? 'ko' : 'en');
+            if (window.translations && window.translations[preferredLanguage]) {
+                applyTranslations(preferredLanguage);
+            }
             return;
         }
-
-        let todayHasItems = false;
-        let upcomingHasItems = false;
 
         items.forEach(item => {
             const itemElement = document.createElement('li');
             itemElement.setAttribute('data-id', item.id);
-
-            let isToday = false;
-            item.reviews.forEach(review => {
-                if (review.date === today && !review.done) {
-                    isToday = true;
-                }
-            });
-
-            const stepsHtml = item.reviews.map(review => `
-                <span class="review-step ${review.done ? 'done' : ''}">
-                    <input type="checkbox" data-step="${review.step}" ${review.done ? 'checked' : ''}>
-                    ${review.date} (+${review.step}d)
-                </span>
-            `).join('');
-
+            
             itemElement.innerHTML = `
-                <span class="review-item-title">${item.title}</span>
+                <span class="item-title">${item.title}</span>
                 <div class="review-steps">
-                    ${stepsHtml}
+                    <label class="review-step ${item.reviews['1'] ? 'completed' : ''}">
+                        <input type="checkbox" data-step="1" ${item.reviews['1'] ? 'checked' : ''}>
+                        1일 후
+                    </label>
+                    <label class="review-step ${item.reviews['3'] ? 'completed' : ''}">
+                        <input type="checkbox" data-step="3" ${item.reviews['3'] ? 'checked' : ''}>
+                        3일 후
+                    </label>
+                    <label class="review-step ${item.reviews['7'] ? 'completed' : ''}">
+                        <input type="checkbox" data-step="7" ${item.reviews['7'] ? 'checked' : ''}>
+                        7일 후
+                    </label>
                 </div>
-                <div class="item-actions">
-                    <button class="delete-btn">Delete</button>
-                </div>
+                <button class="delete-btn">×</button>
             `;
 
-            if (isToday) {
-                todayList.appendChild(itemElement);
-                todayHasItems = true;
-            } else {
-                upcomingList.appendChild(itemElement);
-                upcomingHasItems = true;
+            // Add completed class for strikethrough if a checkbox is checked
+            if (item.reviews['1'] || item.reviews['3'] || item.reviews['7']) {
+                 // Find the specific step and apply strikethrough
+                itemElement.querySelectorAll('input[type="checkbox"]:checked').forEach(cb => {
+                    cb.parentElement.classList.add('completed');
+                });
             }
+
+            studyList.appendChild(itemElement);
         });
-
-        if (!todayHasItems) {
-            todayList.innerHTML = '<li>Nothing to review today. Great job!</li>';
-        }
-        if (!upcomingHasItems) {
-            upcomingList.innerHTML = '<li>No upcoming items scheduled.</li>';
-        }
-
-        addEventListeners();
     };
 
     const addItem = (title) => {
         const items = getItems();
-        const now = new Date();
-
         const newItem = {
             id: Date.now(),
             title: title,
-            reviews: [
-                { date: formatDate(addDays(now, 1)), step: 1, done: false },
-                { date: formatDate(addDays(now, 3)), step: 3, done: false },
-                { date: formatDate(addDays(now, 7)), step: 7, done: false }
-            ]
+            createdAt: new Date().toISOString(),
+            reviews: { '1': false, '3': false, '7': false }
         };
-
         items.push(newItem);
         saveItems(items);
         renderItems();
@@ -107,36 +77,33 @@ document.addEventListener('DOMContentLoaded', () => {
         renderItems();
     };
 
-    const toggleStep = (itemId, step) => {
+    const toggleReview = (itemId, step) => {
         const items = getItems();
         const item = items.find(i => i.id === itemId);
         if (item) {
-            const reviewStep = item.reviews.find(r => r.step === step);
-            if (reviewStep) {
-                reviewStep.done = !reviewStep.done;
-                saveItems(items);
-                renderItems(); // Re-render to update styles and lists
-            }
+            item.reviews[step] = !item.reviews[step];
+            saveItems(items);
+            renderItems();
         }
     };
 
-    function addEventListeners() {
-        document.querySelectorAll('.delete-btn').forEach(button => {
-            button.addEventListener('click', (e) => {
-                const itemId = parseInt(e.target.closest('li').dataset.id);
-                deleteItem(itemId);
-            });
-        });
+    // Event Delegation for list items
+    studyList.addEventListener('click', (e) => {
+        if (e.target.classList.contains('delete-btn')) {
+            const itemId = parseInt(e.target.closest('li').dataset.id);
+            deleteItem(itemId);
+        }
+    });
 
-        document.querySelectorAll('input[type="checkbox"').forEach(checkbox => {
-            checkbox.addEventListener('change', (e) => {
-                const itemId = parseInt(e.target.closest('li').dataset.id);
-                const step = parseInt(e.target.dataset.step);
-                toggleStep(itemId, step);
-            });
-        });
-    }
+    studyList.addEventListener('change', (e) => {
+        if (e.target.matches('input[type="checkbox"]')) {
+            const itemId = parseInt(e.target.closest('li').dataset.id);
+            const step = e.target.dataset.step;
+            toggleReview(itemId, step);
+        }
+    });
 
+    // Add item form submission
     addItemForm.addEventListener('submit', (e) => {
         e.preventDefault();
         const title = itemTitleInput.value.trim();
@@ -146,5 +113,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Initial render
     renderItems();
 });

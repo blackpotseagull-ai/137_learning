@@ -1,7 +1,87 @@
+
+// --- I18n ---
+const translations = {};
+
+async function loadTranslations(lang) {
+  try {
+    const response = await fetch(`/locales/${lang}.json`);
+    if (!response.ok) {
+      throw new Error(`Failed to load translation file for ${lang}`);
+    }
+    const data = await response.json();
+    translations[lang] = data;
+    return data;
+  } catch (error) {
+    console.error(error);
+    // Fallback to English if loading fails
+    if (lang !== 'en') {
+      return await loadTranslations('en');
+    }
+  }
+}
+
+function applyTranslations(lang) {
+  const t = translations[lang];
+  if (!t) return;
+
+  // Function to translate elements
+  const translateElements = (rootElement) => {
+    rootElement.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (t[key]) {
+        // Handle specific attributes like placeholder or title
+        if (el.hasAttribute('data-i18n-target')) {
+            const targetAttr = el.getAttribute('data-i18n-target');
+            el.setAttribute(targetAttr, t[key]);
+        } else {
+            // Default to textContent
+            el.textContent = t[key];
+        }
+      }
+    });
+  };
+
+  // Translate the main document
+  translateElements(document);
+
+  // Translate Web Components
+  document.querySelectorAll('site-header, site-footer').forEach(component => {
+      if (component.shadowRoot) {
+          translateElements(component.shadowRoot);
+      }
+  });
+
+  // Special case for meta tags and title
+  const siteTitle = document.querySelector('title');
+  if (siteTitle && t.site_title) siteTitle.textContent = t.site_title;
+  
+  const metaDesc = document.querySelector('meta[name="description"]');
+  if (metaDesc && t.meta_description) metaDesc.setAttribute('content', t.meta_description);
+  
+  const metaKeywords = document.querySelector('meta[name="keywords"]');
+  if (metaKeywords && t.meta_keywords) metaKeywords.setAttribute('content', t.meta_keywords);
+}
+
+async function setLanguage(lang) {
+  if (!translations[lang]) {
+    await loadTranslations(lang);
+  }
+  applyTranslations(lang);
+  localStorage.setItem('preferredLanguage', lang);
+  // Update lang attribute on <html> for CSS selectors if needed
+  document.documentElement.lang = lang;
+}
+
+// --- Web Components ---
+
 class SiteHeader extends HTMLElement {
   constructor() {
     super();
-    const shadow = this.attachShadow({ mode: 'open' });
+    this.attachShadow({ mode: 'open' });
+    this.render();
+  }
+
+  render() {
     const template = document.createElement('template');
     template.innerHTML = `
       <style>
@@ -29,6 +109,7 @@ class SiteHeader extends HTMLElement {
           margin: 0;
           padding: 0;
           display: flex;
+          align-items: center;
         }
         .nav-links li {
           margin-left: 1.5rem;
@@ -41,27 +122,64 @@ class SiteHeader extends HTMLElement {
         .nav-links a:hover {
             color: #007bff;
         }
+        .lang-switcher button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #495057;
+            padding: 0.25rem 0.5rem;
+        }
+         .lang-switcher button:hover, .lang-switcher button.active {
+            color: #007bff;
+            text-decoration: underline;
+        }
       </style>
       <header>
         <nav>
           <a href="/" class="logo">StudyHub</a>
           <ul class="nav-links">
-            <li><a href="/">Home</a></li>
-            <li><a href="/tool.html">Review Tool</a></li>
-            <li><a href="/about.html">About</a></li>
-            <li><a href="/contact.html">Contact</a></li>
+            <li><a href="/" data-i18n="nav_home">Home</a></li>
+            <li><a href="/tool.html" data-i18n="nav_tool">Review Tool</a></li>
+            <li><a href="/about.html" data-i18n="nav_about">About</a></li>
+            <li><a href="/contact.html" data-i18n="nav_contact">Contact</a></li>
+            <li class="lang-switcher">
+                <button id="lang-en">EN</button>
+                <span>|</span>
+                <button id="lang-ko">KO</button>
+            </li>
           </ul>
         </nav>
       </header>
     `;
-    shadow.appendChild(template.content.cloneNode(true));
+    this.shadowRoot.innerHTML = ''; // Clear previous content
+    this.shadowRoot.appendChild(template.content.cloneNode(true));
+    this.addEventListeners();
+  }
+
+  addEventListeners() {
+      this.shadowRoot.querySelector('#lang-en').addEventListener('click', () => setLanguage('en'));
+      this.shadowRoot.querySelector('#lang-ko').addEventListener('click', () => setLanguage('ko'));
+  }
+
+  connectedCallback() {
+      // Apply translation when component is ready
+      const preferredLanguage = localStorage.getItem('preferredLanguage') || (navigator.language.startsWith('ko') ? 'ko' : 'en');
+      if (translations[preferredLanguage]) {
+          applyTranslations(preferredLanguage);
+      }
   }
 }
 
 class SiteFooter extends HTMLElement {
   constructor() {
     super();
-    const shadow = this.attachShadow({ mode: 'open' });
+    this.attachShadow({ mode: 'open' });
+    this.render();
+  }
+
+  render() {
     const template = document.createElement('template');
     template.innerHTML = `
       <style>
@@ -95,15 +213,36 @@ class SiteFooter extends HTMLElement {
       </style>
       <footer>
         <ul class="footer-links">
-          <li><a href="/privacy.html">Privacy Policy</a></li>
-          <li><a href="/terms.html">Terms of Service</a></li>
+          <li><a href="/privacy.html" data-i18n="footer_privacy">Privacy Policy</a></li>
+          <li><a href="/terms.html" data-i18n="footer_terms">Terms of Service</a></li>
         </ul>
         <p>&copy; ${new Date().getFullYear()} StudyHub. All rights reserved.</p>
       </footer>
     `;
-    shadow.appendChild(template.content.cloneNode(true));
+    this.shadowRoot.innerHTML = '';
+    this.shadowRoot.appendChild(template.content.cloneNode(true));
+  }
+  
+  connectedCallback() {
+      // Apply translation when component is ready
+      const preferredLanguage = localStorage.getItem('preferredLanguage') || (navigator.language.startsWith('ko') ? 'ko' : 'en');
+      if (translations[preferredLanguage]) {
+          applyTranslations(preferredLanguage);
+      }
   }
 }
 
-customElements.define('site-header', SiteHeader);
-customElements.define('site-footer', SiteFooter);
+// --- Initialization ---
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Define custom elements
+  customElements.define('site-header', SiteHeader);
+  customElements.define('site-footer', SiteFooter);
+  
+  // Set the initial language
+  const preferredLanguage = localStorage.getItem('preferredLanguage') || (navigator.language.startsWith('ko') ? 'ko' : 'en');
+  setLanguage(preferredLanguage);
+});
+
+// Expose setLanguage globally so components can call it
+window.setLanguage = setLanguage;

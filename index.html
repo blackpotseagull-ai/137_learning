@@ -1,19 +1,46 @@
+
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>StudyHub - Your Ultimate Learning Companion</title>
-  <meta name="description" content="Master any subject with our effective study strategies and review tools, based on the 137 learning method and the forgetting curve.">
-  <meta name="keywords" content="137 learning method, forgetting curve, study techniques, spaced repetition, learning strategies">
+
+  <!-- The title and meta tags will be dynamically updated by script.js -->
+  <title>StudyHub | Effective Learning Strategies</title>
+  <meta name="description" content="Master effective study methods with StudyHub. We provide tools and articles based on cognitive science, like spaced repetition, to enhance your memory and learning.">
+  <meta name="keywords" content="study methods, spaced repetition, learning techniques, memory improvement, study blog">
+
   <link href='/css/style.css' rel='stylesheet'>
 </head>
 <body>
   <site-header></site-header>
 
-  <main>
-    <h1>Welcome to StudyHub!</h1>
-    <p>Your journey to effective learning starts here. Explore our articles and use our review tool to conquer any subject.</p>
+  <main class="container">
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1 data-i18n="hero_title">Study Smarter, Not Harder, with Brain-Based Learning.</h1>
+        <p data-i18n="hero_subtitle">StudyHub is your learning partner, helping you unlock your full potential with scientifically-proven methods.</p>
+        <a href="/tool.html" class="button" data-i18n="hero_button">Try the Review Tool</a>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <h2 data-i18n="features_title">Key Features</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h3 data-i18n="feature_1_title">Spaced Repetition Learning</h3>
+                <p data-i18n="feature_1_desc">We notify you of the optimal review time, just before you're about to forget.</p>
+            </div>
+            <div class="feature-card">
+                <h3 data-i18n="feature_2_title">In-Depth Learning Blog</h3>
+                <p data-i18n="feature_2_desc">Explore articles on efficient study habits, memory techniques, and productivity.</p>
+            </div>
+            <div class="feature-card">
+                <h3 data-i18n="feature_3_title">Personalized Tracking</h3>
+                <p data-i18n="feature_3_desc">Create your own study plans and track your progress effectively.</p>
+            </div>
+        </div>
+    </section>
   </main>
 
   <site-footer></site-footer>
