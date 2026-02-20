@@ -144,6 +144,7 @@ class SiteHeader extends HTMLElement {
             <li><a href="/tool.html" data-i18n="nav_tool">Review Tool</a></li>
             <li><a href="/blog.html" data-i18n="nav_blog">Blog</a></li>
             <li><a href="/about.html" data-i18n="nav_about">About</a></li>
+            <li><a href="/contact.html" data-i18n="nav_contact">Contact</a></li>
             <li class="lang-switcher">
                 <button id="lang-en">EN</button>
                 <span>|</span>

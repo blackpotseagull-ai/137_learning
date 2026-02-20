@@ -1,12 +1,23 @@
 <!doctype html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>블로그 | StudyHub</title>
-  <meta name="description" content="학습법, 시간 관리, 집중력 향상 등 StudyHub의 유용한 블로그 글들을 모두 모아보세요.">
+  
+  <!-- SEO Tags -->
+  <title data-i18n="blog_page_title">StudyHub Blog | Study Tips & Learning Strategies</title>
+  <meta name="description" content="Explore the StudyHub blog for the latest articles on scientific study methods, time management, and productivity tips to help you learn smarter." data-i18n="blog_meta_description">
+  <meta name="keywords" content="study blog, learning strategies, time management, productivity, spaced repetition, study tips, 학습 블로그, 공부법, 시간 관리, 생산성, 간격 반복, 공부 팁">
+  <link rel="canonical" href="https://studyhub.user.web.app/blog.html" />
+
+  <!-- Google AdSense & Search Console Meta Tags -->
+  <meta name="google-adsense-account" content="ca-pub-2765018802895367">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2765018802895367"
+     crossorigin="anonymous"></script>
+
   <link href="/css/style.css" rel="stylesheet">
   <link href="/css/blog-list.css" rel="stylesheet">
+  <script src="/js/script.js" type="module"></script>
 </head>
 <body>
   <site-header></site-header>
@@ -16,6 +27,33 @@
         <h1 data-i18n="latest_posts_title">최신 블로그 포스트</h1>
     </header>
     <div class="blog-list">
+
+      <div class="card">
+        <div class="card-content">
+          <h2 class="card-title">"내일 할까?" 미루는 습관을 정복하는 5가지 심리 기술</h2>
+          <p class="card-excerpt">완벽주의, 실패에 대한 두려움 등 미루는 습관의 원인을 파악하고, 2분 규칙, 타임박싱 등 과학적으로 증명된 전략으로 지금 당장 행동하게 만드세요.</p>
+          <span class="card-meta">2024-05-25</span>
+          <a href="/blog/overcoming-procrastination.html" class="card-link">더 읽어보기</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-content">
+          <h2 class="card-title">벼락치기는 이제 그만! 시험을 정복하는 완벽한 공부 루틴</h2>
+          <p class="card-excerpt">체계적인 계획, 과목별 시간 배분, 뽀모도로 기법, 그리고 효과적인 복습을 통합한 과학적인 시험 대비 공부 루틴을 만들어보세요.</p>
+          <span class="card-meta">2024-05-24</span>
+          <a href="/blog/exam-study-routine.html" class="card-link">더 읽어보기</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-content">
+          <h2 class="card-title">망각곡선과 효과적인 복습 방법: 배운 것을 잊지 않는 기술</h2>
+          <p class="card-excerpt">헤르만 에빙하우스의 망각곡선 이론을 이해하고, 간격 효과와 인출 연습을 활용한 과학적인 복습 방법으로 학습 효율을 극대화하세요.</p>
+          <span class="card-meta">2024-05-23</span>
+          <a href="/blog/forgetting-curve.html" class="card-link">더 읽어보기</a>
+        </div>
+      </div>
 
       <div class="card">
         <div class="card-content">
@@ -48,7 +86,5 @@
   </main>
 
   <site-footer></site-footer>
-
-  <script defer type="text/javascript" src="/js/script.js"></script>
 </body>
 </html>

@@ -1,0 +1,53 @@
+/* 블로그 게시물 전용 스타일 */
+
+.post-container {
+    max-width: 800px; /* 본문 폭을 가독성 좋게 조절 */
+}
+
+.post-header {
+    border-bottom: 2px solid #eee;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+}
+
+.post-header h1 {
+    font-size: 2.5rem; /* 제목 크기를 키워 강조 */
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+
+.post-meta {
+    font-size: 0.9rem;
+    color: #6c757d; /* 메타 정보는 회색으로 처리 */
+}
+
+.post-container article section {
+    margin-bottom: 2rem;
+}
+
+.post-container article h2 {
+    font-size: 1.8rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.5rem;
+}
+
+.post-container article p,
+.post-container article ul li {
+    font-size: 1.1rem; /* 본문 폰트 크기 살짝 키움 */
+    line-height: 1.8; /* 줄 간격을 넓혀 가독성 확보 */
+    color: #343a40;
+}
+
+.post-container article ul {
+    padding-left: 2rem;
+}
+
+.post-container article ul li {
+    margin-bottom: 0.8rem;
+}
+
+.post-container strong {
+    color: #0056b3;
+}

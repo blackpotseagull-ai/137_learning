@@ -1,82 +1,58 @@
-# Project Blueprint: StudyHub
+# StudyHub 프로젝트 청사진
 
-## Overview
+## 1. 프로젝트 개요
 
-StudyHub is a web application designed to help users learn and retain information more effectively. It's built on the principles of cognitive science, specifically the forgetting curve and spaced repetition. The application provides users with a tool to schedule and track their study sessions, along with a blog that offers valuable insights and strategies for effective learning. The entire application is built with modern, framework-less web technologies, including Web Components, to ensure a lightweight and maintainable codebase.
+**StudyHub**는 학습자들이 과학적으로 증명된 1-3-7 학습법과 같은 효과적인 복습 방법을 쉽게 실천할 수 있도록 돕는 웹 애플리케이션입니다. 사용자는 학습 주제를 등록하고, 시스템이 제안하는 최적의 복습 일정에 따라 학습 내용을 체계적으로 관리하여 장기 기억으로 전환할 수 있습니다.
 
-## Core Features
+이 프로젝트의 최종 목표는 단순한 도구를 넘어, 학습자에게 동기를 부여하고 유용한 학습 정보를 제공하는 종합적인 학습 커뮤니티 플랫폼으로 성장하는 것입니다. 이를 통해 Google 애드센스 승인을 받아 지속 가능한 운영 기반을 마련하고자 합니다.
 
-### 1. **Learning Review Tool**
+## 2. 디자인 및 기능 원칙
 
-- **Functionality:** Allows users to add learning topics and automatically schedules review sessions based on the 1-3-7 day spaced repetition model.
-- **Technology:** Uses LocalStorage to save and manage user data, making it a client-side only tool.
-- **UI:** The interface is divided into "Today's Review Items" and "Upcoming Review Items" for a clear overview.
-- **Files:** `tool.html`, `css/tool.css`, `js/tool.js`
+*   **직관적인 디자인:** 사용자가 서비스를 처음 접했을 때, 사용법을 즉시 이해할 수 있는 간단하고 명확한 UI를 제공합니다.
+*   **모바일 우선 접근:** 모든 기능과 페이지는 모바일 환경에서 완벽하게 작동하도록 반응형으로 디자인됩니다.
+*   **가치 중심 콘텐츠:** 모든 블로그 게시물과 정보성 콘텐츠는 사용자에게 실질적이고 구체적인 도움을 주는 것을 최우선 목표로 합니다.
+*   **신뢰성:** 개인정보처리방침, 이용약관 등 정책 페이지를 명확히 제공하여 사용자의 신뢰를 얻습니다.
 
-### 2. **Educational Blog**
+## 3. 애드센스 승인 실행 계획
 
-- **Content:** A series of 15 high-quality articles focused on effective study methods, memory techniques, and productivity. The content is optimized for SEO to attract organic traffic.
-- **Topics Covered:
-    - 137 Learning Method
-    - Ebbinghaus Forgetting Curve
-    - Creating a Study Routine
-    - 2-Week Exam Preparation
-    - Spaced Repetition
-    - Memorization Techniques
-    - Math Study Tips
-    - Civil Servant Exam Strategy
-    - TOEIC Study Plan
-    - 3-Hour Study Routine
-    - Concentration Tips
-    - Overcoming Slumps
-    - Note-Taking Methods
-    - Error Analysis Notebooks
-    - Long-Term Memory
-- **Files:** All articles are located in the `blog/` directory.
+### **1단계: 신뢰도 기반 구축 (완료)**
 
-### 3. **Reusable Web Components**
+사이트의 신뢰성과 전문성을 입증하기 위한 기술적, 정책적 기반을 마련했습니다.
 
-- **Header (`<site-header>`):** Provides consistent navigation across all pages. Includes links to Home, Review Tool, and the main blog page.
-- **Footer (`<site-footer>`):** Contains links to privacy/terms pages and the copyright notice.
-- **Technology:** Built with Custom Elements and Shadow DOM for encapsulation.
-- **File:** `js/script.js`
+*   [x] **정책 페이지 생성:**
+    *   [x] `privacy.html` (개인정보처리방침) 생성 완료
+    *   [x] `terms.html` (이용약관) 생성 완료
+    *   [x] `about.html` 내용 검토 및 보강 완료
+*   [x] **'문의하기' 링크 복구:** 사용자와의 소통 창구를 마련하기 위해 메뉴에 'Contact' 링크를 다시 추가했습니다.
+*   [x] **기본 SEO 파일 생성:**
+    *   [x] `robots.txt` 파일 생성 완료
+    *   [x] `sitemap.xml` 파일 생성 완료
 
-## Project Structure
+### **2단계: 고품질 콘텐츠 확장 (진행 중)**
 
-```
-/
-|-- index.html
-|-- tool.html
-|-- about.html
-|-- contact.html
-|-- privacy.html
-|-- terms.html
-|-- css/
-|   |-- style.css
-|   |-- tool.css
-|   |-- blog.css
-|-- js/
-|   |-- script.js
-|   |-- tool.js
-|-- blog/
-|   |-- 137-method.html
-|   |-- memory-curve.html
-|   |-- ... (13 more articles)
-|-- blueprint.md
-```
+양질의 정보성 콘텐츠를 발행하여 사이트의 가치를 높이고, 검색엔진의 긍정적인 평가를 유도합니다. 현재까지 총 3개의 고품질 블로그 게시물을 발행했습니다.
 
-## Design and Styling
+*   [x] **블로그 게시물 발행 (800자 이상):**
+    *   [x] "망각곡선과 효과적인 복습 방법: 배운 것을 잊지 않는 기술"
+    *   [x] "벼락치기는 이제 그만! 시험을 정복하는 완벽한 공부 루틴"
+    *   [x] "'내일 할까?' 미루는 습관을 정복하는 5가지 심리 기술"
+    *   [ ] (신규 주제 지속적으로 추가 예정)
+*   [x] `blog.html` 페이지에 신규 게시물 링크 업데이트 완료
+*   [x] `sitemap.xml` 파일에 신규 URL 추가 및 날짜 갱신 완료
 
-- **Aesthetics:** Clean, modern, and user-friendly. The design prioritizes readability and ease of use.
-- **Layout:** Responsive design that works well on both desktop and mobile devices.
-- **Typography:** Uses a system font stack for performance and a native feel.
-- **Color Palette:** A simple and clean palette with a primary color used for highlights and calls-to-action.
-- **File:** `css/style.css`
+### **3단계: 종합 SEO 강화 및 제출**
 
-## Current Plan: Finalization and Deployment
+사이트의 내부 구조를 최적화하고 Google에 공식적으로 존재를 알려 승인 절차를 시작합니다.
 
-1.  **Review and Refine:** The core structure, features, and content are now complete. The next step would be a thorough review of all pages and functionality to ensure there are no broken links or bugs.
+*   [ ] **내부 링크 구축:** 각 콘텐츠 페이지에 연관 페이지(다른 글, 복습 도구 등)로 연결되는 링크 추가
+*   [ ] **Google Search Console 등록 및 사이트맵 제출 안내**
 
-2.  **Deployment:** Once the site is confirmed to be working correctly, it will be deployed to a web server. (This step would typically involve using a service like Firebase Hosting or Netlify).
+---
 
-3.  **AdSense Application:** With the site live and populated with high-quality content, the final step is to apply for Google AdSense.
+## 4. 현재 진행 계획 (2024-05-25)
+
+*   **목표:** 프로젝트의 현재 상태를 반영하여 `blueprint.md` 파일을 최신화합니다.
+*   **세부 계획:**
+    *   [x] 1단계 신뢰도 기반 구축 완료 처리.
+    *   [x] 2단계 고품질 콘텐츠 확장 진행 상태 업데이트 (블로그 3개 발행 완료).
+    *   [x] `blueprint.md` 파일 저장 완료.
