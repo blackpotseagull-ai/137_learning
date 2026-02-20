@@ -38,5 +38,27 @@
   "add_topic_placeholder": "예: 대수학 3장",
   "add_topic_button": "주제 추가",
   "study_list_title": "나의 학습 목록",
-  "empty_list_message": "학습 목록이 비어있습니다. 위에서 주제를 추가하여 시작하세요!"
+  "empty_list_message": "학습 목록이 비어있습니다. 위에서 주제를 추가하여 시작하세요!",
+
+  "about_page_title": "소개 - StudyHub",
+  "about_meta_description": "과학적으로 증명된 방법으로 전 세계 학습자들이 더 스마트하게 공부할 수 있도록 돕는 StudyHub의 미션에 대해 알아보세요.",
+  "about_main_title": "StudyHub 소개",
+  "about_main_subtitle": "우리는 효과적이고, 흥미로우며, 과학에 기반한 학습을 믿습니다.",
+  "about_mission_title": "우리의 미션",
+  "about_mission_p1": "정보가 넘쳐나는 세상에서 효과적으로 학습하는 능력은 그 어느 때보다 중요합니다. 하지만 많은 사람들이 여전히 낡고 비효율적인 공부 습관에 의존하고 있습니다. StudyHub의 미션은 바로 그것을 바꾸는 것입니다.",
+  "about_mission_p2": "우리는 모든 연령대의 학습자에게 간격 반복, 인출 연습과 같은 검증된 인지 과학 원리에 기반한 도구와 지식을 제공하기 위해 최선을 다하고 있습니다. 학습을 덜 스트레스받고 더 전략적인 과정으로 만들어, 당신의 목표를 더 빨리 달성하고 지식을 더 오래 유지할 수 있도록 돕고자 합니다.",
+  "about_story_title": "우리의 이야기",
+  "about_story_p1": "StudyHub는 '벼락치고 잊어버리는' 학습 사이클에 좌절감을 느낀 한 그룹의 학생들과 평생 학습자들의 작은 프로젝트로 시작되었습니다. 우리는 기억, 인지, 그리고 효과적인 학습 전략에 대한 수많은 연구 논문을 파고들었습니다.",
+  "about_story_p2": "그 과정에서 우리는 학습에 대한 접근 방식을 완전히 바꿔놓은 귀중한 통찰력들을 발견했습니다. 우리는 이 원칙들을 우리 자신의 학습에 적용하기 위해 복습 도구의 첫 버전을 만들었습니다. 그 결과는 너무나 혁신적이어서, 우리는 이것을 세상과 공유해야 한다고 확신했습니다. 그렇게 StudyHub가 탄생했습니다 – 더 열심히가 아닌, 더 똑똑하게 공부할 수 있도록 돕는 플랫폼입니다.",
+  "contact_page_title": "문의하기 - StudyHub",
+  "contact_meta_description": "StudyHub 팀에 연락해주세요. 질문, 피드백, 제안 모두 환영합니다.",
+  "contact_main_title": "문의하기",
+  "contact_main_subtitle": "여러분의 의견을 기다립니다. 질문, 피드백, 협업 제안 등 무엇이든 편하게 연락주세요.",
+  "contact_form_name_label": "이름",
+  "contact_form_name_placeholder": "이름을 입력하세요",
+  "contact_form_email_label": "이메일",
+  "contact_form_email_placeholder": "your.email@example.com",
+  "contact_form_message_label": "메시지",
+  "contact_form_message_placeholder": "메시지를 입력하세요...",
+  "contact_form_submit_button": "메시지 보내기"
 }

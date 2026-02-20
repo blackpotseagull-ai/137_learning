@@ -38,5 +38,27 @@
   "add_topic_placeholder": "e.g., Algebra Chapter 3",
   "add_topic_button": "Add Topic",
   "study_list_title": "My Study List",
-  "empty_list_message": "Your study list is empty. Add a topic above to get started!"
+  "empty_list_message": "Your study list is empty. Add a topic above to get started!",
+
+  "about_page_title": "About Us - StudyHub",
+  "about_meta_description": "Learn about StudyHub's mission to help learners worldwide study smarter using scientifically-proven methods.",
+  "about_main_title": "About StudyHub",
+  "about_main_subtitle": "We believe in learning that's effective, engaging, and backed by science.",
+  "about_mission_title": "Our Mission",
+  "about_mission_p1": "In a world overflowing with information, the ability to learn effectively is more important than ever. However, many of us still rely on outdated and inefficient study habits. At StudyHub, our mission is to change that.",
+  "about_mission_p2": "We are dedicated to providing learners of all ages with tools and knowledge based on proven cognitive science principles, such as spaced repetition and active recall. We aim to make learning a more strategic and less stressful process, empowering you to achieve your goals faster and retain knowledge for longer.",
+  "about_story_title": "Our Story",
+  "about_story_p1": "StudyHub started as a small project by a group of students and life-long learners who were frustrated with the 'cram and forget' cycle. We spent countless hours digging into research papers on memory, cognition, and effective learning strategies.",
+  "about_story_p2": "What we discovered was a treasure trove of insights that completely changed how we approached learning. We built the first version of our Review Tool to apply these principles to our own studies. The results were so transformative that we knew we had to share it with the world. Thus, StudyHub was born – a platform dedicated to helping everyone study smarter, not just harder.",
+  "contact_page_title": "Contact Us - StudyHub",
+  "contact_meta_description": "Get in touch with the StudyHub team. We welcome your questions, feedback, and suggestions.",
+  "contact_main_title": "Contact Us",
+  "contact_main_subtitle": "We'd love to hear from you. Whether you have a question, feedback, or a collaboration idea, please reach out.",
+  "contact_form_name_label": "Name",
+  "contact_form_name_placeholder": "Your Name",
+  "contact_form_email_label": "Email",
+  "contact_form_email_placeholder": "your.email@example.com",
+  "contact_form_message_label": "Message",
+  "contact_form_message_placeholder": "Your message...",
+  "contact_form_submit_button": "Send Message"
 }

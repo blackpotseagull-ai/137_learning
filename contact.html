@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="contact_page_title">Contact Us - StudyHub</title>
+    <meta name="description" data-i18n="contact_meta_description" content="Get in touch with the StudyHub team. We welcome your questions, feedback, and suggestions.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/tool.css"> <!-- Reusing styles for cards and forms -->
+</head>
+<body>
+    <header>
+        <!-- Navigation will be loaded by script.js -->
+    </header>
+
+    <main class="container">
+        <section class="page-intro text-center">
+            <h1 data-i18n="contact_main_title">Contact Us</h1>
+            <p class="lead" data-i18n="contact_main_subtitle">We'd love to hear from you. Whether you have a question, feedback, or a collaboration idea, please reach out.</p>
+        </section>
+
+        <div class="card">
+            <form id="contact-form">
+                <div class="form-group">
+                    <label for="name" data-i18n="contact_form_name_label">Name</label>
+                    <input type="text" id="name" name="name" data-i18n-placeholder="contact_form_name_placeholder" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email" data-i18n="contact_form_email_label">Email</label>
+                    <input type="email" id="email" name="email" data-i18n-placeholder="contact_form_email_placeholder" placeholder="your.email@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="message" data-i18n="contact_form_message_label">Message</label>
+                    <textarea id="message" name="message" rows="6" data-i18n-placeholder="contact_form_message_placeholder" placeholder="Your message..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" data-i18n="contact_form_submit_button">Send Message</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <!-- Footer will be loaded by script.js -->
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
