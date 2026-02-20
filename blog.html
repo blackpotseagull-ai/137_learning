@@ -1,44 +1,54 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>블로그 | StudyHub</title>
-    <meta name="description" content="효과적인 공부법, 학습 전략, 시간 관리 등 학습에 도움이 되는 다양한 글들을 만나보세요.">
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/blog-list.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>블로그 | StudyHub</title>
+  <meta name="description" content="학습법, 시간 관리, 집중력 향상 등 StudyHub의 유용한 블로그 글들을 모두 모아보세요.">
+  <link href="/css/style.css" rel="stylesheet">
+  <link href="/css/blog-list.css" rel="stylesheet">
 </head>
 <body>
-    <site-header></site-header>
+  <site-header></site-header>
 
-    <main class="container">
-        <section class="page-intro text-center">
-            <h1>StudyHub 블로그</h1>
-            <p class="lead">과학적인 학습법부터 생산성 팁까지, 여러분의 잠재력을 깨워줄 이야기들.</p>
-        </section>
+  <main class="blog-list-page">
+    <header class="list-header">
+        <h1 data-i18n="latest_posts_title">최신 블로그 포스트</h1>
+    </header>
+    <div class="blog-list">
 
-        <section class="blog-list">
-            <!-- Blog Post 1 -->
-            <div class="blog-card" onclick="location.href='/blog/137-method.html'">
-                <h2>137 학습법: 망각곡선을 이기는 가장 강력한 복습 전략</h2>
-                <p class="post-meta">작성일: 2023-10-27</p>
-                <p class="post-excerpt">에빙하우스의 망각곡선을 이기고, 단기 기억을 장기 기억으로 확실하게 전환하는 효과적인 방법, 137 학습법의 모든 것을 알려드립니다.</p>
-                <a href="/blog/137-method.html" class="read-more">더 읽어보기 &rarr;</a>
-            </div>
+      <div class="card">
+        <div class="card-content">
+          <h2 class="card-title">집중력을 높이는 5가지 과학적인 방법</h2>
+          <p class="card-excerpt">뇌과학에 기반한 5가지 방법을 통해 학습과 업무 집중력을 향상시키세요. 디지털 디톡스, 마음챙김 명상 등을 알아봅니다.</p>
+          <span class="card-meta">2023-11-12</span>
+          <a href="/blog/focus-techniques.html" class="card-link">더 읽어보기</a>
+        </div>
+      </div>
 
-            <!-- Blog Post 2 -->
-            <div class="blog-card" onclick="location.href='/blog/study-routine.html'">
-                <h2>매일매일 성공을 쌓는 법: 나만의 공부 루틴 만들기</h2>
-                <p class="post-meta">작성일: 2023-10-29</p>
-                <p class="post-excerpt">성공적인 학습의 핵심은 '어떻게' 공부하느냐에 있습니다. 체계적인 공부 루틴은 방황하는 시간을 줄이고, 꾸준함을 만들어 목표 달성을 앞당깁니다.</p>
-                <a href="/blog/study-routine.html" class="read-more">더 읽어보기 &rarr;</a>
-            </div>
+      <div class="card">
+        <div class="card-content">
+          <h2 class="card-title">학생을 위한 완벽한 시간 관리 기술</h2>
+          <p class="card-excerpt">뽀모도로 기법, 아이젠하워 매트릭스 등 학생에게 꼭 필요한 시간 관리 기술을 배우고 학습 효율을 극대화하세요.</p>
+          <span class="card-meta">2023-11-05</span>
+          <a href="/blog/time-management.html" class="card-link">더 읽어보기</a>
+        </div>
+      </div>
 
-        </section>
-    </main>
+      <div class="card">
+        <div class="card-content">
+          <h2 class="card-title">137 학습법: 망각곡선을 이기는 가장 강력한 복습 전략</h2>
+          <p class="card-excerpt">137 학습법을 활용한 효과적인 공부 전략과 망각곡선 기반 복습 방법을 상세히 설명합니다. 단기 기억을 장기 기억으로 전환하세요.</p>
+          <span class="card-meta">2023-10-27</span>
+          <a href="/blog/137-method.html" class="card-link">더 읽어보기</a>
+        </div>
+      </div>
 
-    <site-footer></site-footer>
-    <script src="/js/script.js"></script>
+    </div>
+  </main>
+
+  <site-footer></site-footer>
+
+  <script defer type="text/javascript" src="/js/script.js"></script>
 </body>
 </html>
